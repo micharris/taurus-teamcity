@@ -1,9 +1,9 @@
 ---
 execution:
  executor: locust
- concurrency: 2
+ concurrency: 10
  ramp-up: 1m
- iterations: 5
+ iterations: 700
  scenario:
-  default-address: http://presentation-api.staging.gannettdigital.com/
-  script: load_test_script.py
+  default-address: http://www.usatoday.com
+  script: load_test.py
