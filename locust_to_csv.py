@@ -11,19 +11,15 @@ now = datetime.datetime.now()
 
 data = {}
 
-def get_file_path():
-	dirList = next(os.walk('.'))[1]
-	dirList.sort()
-	return dirList[-1]
 
-def convert_to_CSV(path):
+def convert_to_CSV():
 	errorFlag = 0
 	responseFlag = 0
 	totalErrors = 0
 	totalRequests = 0
 	startFlag = 0
 
-	with open(path+"/locust.out") as f:
+	with open("stats.out") as f:
 		for line in f:
 			#get median response times for each endpoint
 			if(responseFlag == 0 and re.search('Median',line)):
@@ -93,7 +89,6 @@ def write_error_file():
 	    		else:
 	    			writer.writerow([now.strftime("%Y-%m-%d-%H-%M"), key, '0'])
 
-path = get_file_path()
-convert_to_CSV(path)
+convert_to_CSV()
 write_CSV_File()
 write_error_file()
