@@ -29,5 +29,5 @@ with open(path+'/cpu.json', 'w') as file_:
 query_memory = 'system.mem.used{'+servers+'} by {host}'
 results = api.Metric.query(start=start, end=end, query=query_memory)
 
-with open(paht+'/memory.json', 'w') as file_:
+with open(path+'/memory.json', 'w') as file_:
     file_.write(json.dumps(results))
