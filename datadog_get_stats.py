@@ -34,3 +34,7 @@ with open('memory.json', 'w') as file_:
 
 
 print os.path.dirname(os.path.abspath(__file__))
+
+with open('mike.json', 'w') as file_:
+	file_.write('{"mike":"1"}')
+	
