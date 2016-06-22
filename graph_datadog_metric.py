@@ -10,6 +10,7 @@ import numbers
 apiKey = sys.argv[1]
 project = sys.argv[2]
 metric = sys.argv[3]
+path = sys.argv[4]
 
 plt.figure(figsize=(18,8), dpi=100)
 plt.xticks(rotation=70)
@@ -137,7 +138,7 @@ def drawLegend(legend_values):
 	plt.title('DataDog metric: '+x_label+' for '+project)
 	plt.ylabel(x_label, labelpad=20)
 	plt.xlabel('Runtime of the tests', labelpad=20)
-	plt.savefig(metric+'.png', bbox_inches='tight')
+	plt.savefig(path+"/"+metric+'.png', bbox_inches='tight')
 
 file_list = getFileList()
 legend_values = getFileValues(file_list)
