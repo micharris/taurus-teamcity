@@ -2,7 +2,7 @@ from datadog import initialize, api
 import time
 import datetime
 import json
-import sys
+import sys, os
  
 #must pass in api key and app key from teamcity
 options = {
