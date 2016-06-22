@@ -104,7 +104,7 @@ def getFileValues(file_list):
 	return [date_list, min_val, max_val]
 
 
-def drawLegend(legend_values):		
+def drawLegend(legend_values, path):		
 	#show the dates below graph
 	global metric
 	i = 0
@@ -143,6 +143,6 @@ def drawLegend(legend_values):
 
 file_list = getFileList()
 legend_values = getFileValues(file_list)
-drawLegend(legend_values)
+drawLegend(legend_values, path)
 
 
