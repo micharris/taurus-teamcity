@@ -25,18 +25,20 @@ results = api.Metric.query(start=start, end=end, query=query_cpu)
 print "query is: "+query_cpu
 print results
 
-with open('cpu.json', 'w') as file_:
+with open(path+'cpu.json', 'w') as file_:
     file_.write(json.dumps(results))
 
 #system.mem.used = The amount of RAM in use shown as byte
 query_memory = 'system.mem.used{'+servers+'} by {host}'
 results = api.Metric.query(start=start, end=end, query=query_memory)
 
-with open('memory.json', 'w') as file_:
+with open(path+'memory.json', 'w') as file_:
     file_.write(json.dumps(results))
 
 
 print os.path.dirname(os.path.abspath(__file__))
 
-with open('mike.txt', 'w') as file_:
+with open(path+'mike.txt', 'w') as file_:
 	file_.write('mike was here')
+
+
