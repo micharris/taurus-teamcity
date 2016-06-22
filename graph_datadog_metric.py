@@ -139,7 +139,6 @@ def drawLegend(legend_values, path, metric):
 	plt.xlabel('Runtime of the tests', labelpad=20)
 	plt.savefig(path+'/'+metric+'.png', bbox_inches='tight')
 
-print 'path is: '+path+'/'+metric+'.png'
 file_list = getFileList()
 legend_values = getFileValues(file_list)
 drawLegend(legend_values, path, metric)
