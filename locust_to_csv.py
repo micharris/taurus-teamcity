@@ -23,7 +23,7 @@ def convert_to_CSV(path):
 	totalRequests = 0
 	startFlag = 0
 
-	with open(path+"/locust.out") as f:
+	with open("locust.out") as f:
 		for line in f:
 			#get median response times for each endpoint
 			if(responseFlag == 0 and re.search('Median',line)):
