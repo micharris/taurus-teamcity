@@ -13,6 +13,8 @@ data = {}
 
 def get_file_path():
 	dirList = next(os.walk('.'))[1]
+	dirList.remove('ENV')
+	dirList.remove('datadog')
 	dirList.sort()
 	return dirList[-1]
 
