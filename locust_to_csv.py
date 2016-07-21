@@ -10,6 +10,7 @@ now = datetime.datetime.now()
 #endpoint, response time
 
 data = {}
+error = {}
 
 def get_file_path():
 	dirList = next(os.walk('.'))[1]
