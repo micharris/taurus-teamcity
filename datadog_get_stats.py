@@ -11,7 +11,6 @@ options = {
 }
 
 servers = sys.argv[3]
-path = sys.argv[4]
  
 initialize(**options)
  
@@ -22,12 +21,12 @@ end = round(time.time())
 query_cpu = 'system.cpu.idle{'+servers+'} by {host}' 
 results = api.Metric.query(start=start, end=end, query=query_cpu)
 
-with open(path+'/cpu.json', 'w') as file_:
+with open('cpu.json', 'w') as file_:
     file_.write(json.dumps(results))
 
 #system.mem.used = The amount of RAM in use shown as byte
 query_memory = 'system.mem.used{'+servers+'} by {host}'
 results = api.Metric.query(start=start, end=end, query=query_memory)
 
-with open(path+'/memory.json', 'w') as file_:
+with open('memory.json', 'w') as file_:
     file_.write(json.dumps(results))
