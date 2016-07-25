@@ -84,17 +84,20 @@ def write_CSV_File():
 	    	writer.writerow([now.strftime("%Y-%m-%d-%H-%M"), key, value])
 
 def write_error_file():
-	with open('errorRate.csv', 'w') as csvfile:
-	    fieldnames = ['date', 'endpoint', 'errorRate']
-	    writer = csv.writer(csvfile)
+    with open('errorRate.csv', 'w') as csvfile:
+        fieldnames = ['date', 'endpoint', 'errorRate']
+        writer = csv.writer(csvfile)
 
-	    writer.writerow(fieldnames)
-	    for key, value in data.iteritems():
-	    	for key2, value2 in error.iteritems():
-	    		if(key == key2):
-	    			writer.writerow([now.strftime("%Y-%m-%d-%H-%M"), key, value2])
-	    		else:
-	    			writer.writerow([now.strftime("%Y-%m-%d-%H-%M"), key, '0'])
+        writer.writerow(fieldnames)
+        for key, value in data.iteritems():
+            if not bool(errors):  # error dictionary is empty b/c there were no errors
+                writer.writerow([now.strftime("%Y-%m-%d-%H-%M"), key, '0'])
+            else:
+                for key2, value2 in errors.iteritems():
+                    if(key == key2):  # if a key is missing it's because there were no errors for that endpoint
+                        writer.writerow([now.strftime("%Y-%m-%d-%H-%M"), key, value2])
+                    else:
+                        writer.writerow([now.strftime("%Y-%m-%d-%H-%M"), key, '0'])
 
 path = get_file_path()
 convert_to_CSV(path)
