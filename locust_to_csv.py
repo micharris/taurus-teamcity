@@ -90,10 +90,10 @@ def write_error_file():
 
         writer.writerow(fieldnames)
         for key, value in data.iteritems():
-            if not bool(errors):  # error dictionary is empty b/c there were no errors
+            if not bool(error):  # error dictionary is empty b/c there were no errors
                 writer.writerow([now.strftime("%Y-%m-%d-%H-%M"), key, '0'])
             else:
-                for key2, value2 in errors.iteritems():
+                for key2, value2 in error.iteritems():
                     if(key == key2):  # if a key is missing it's because there were no errors for that endpoint
                         writer.writerow([now.strftime("%Y-%m-%d-%H-%M"), key, value2])
                     else:
